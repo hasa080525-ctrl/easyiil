@@ -41,7 +41,7 @@ function submitApplyForm(){
   const subjectVal = subject ? subject.value : '';
   const messageVal = message && message.value.trim() ? message.value.trim() : '(없음)';
   const summary =
-    '[충청도세종과외 무료 진단 신청]\n' +
+    '[홍성과외 무료 진단 신청]\n' +
     '학생 이름: ' + name.value.trim() + '\n' +
     '연락처: ' + phone.value.trim() + '\n' +
     (grade ? '학년: ' + gradeVal + '\n' : '') +
@@ -54,13 +54,13 @@ function submitApplyForm(){
       phone: phone.value.trim(),
       grade: gradeVal,
       subject: subjectVal,
-      message: '[충청도세종과외] ' + messageVal
+      message: '[홍성과외] ' + messageVal
     }).catch(function(err){ console.error('EmailJS send failed:', err); });
   }
 
   fetch('https://script.google.com/macros/s/AKfycbwOqTTLkqZ_frFyT6N0QcjYZT3jsG0puhq9wRmrQSPxhFgn0fXET3AoGVj4PiHMNHcg/exec', {
     method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' },
-    body: JSON.stringify({ site: '충청도세종과외', name: name.value.trim(), phone: phone.value.trim(), grade: gradeVal, subject: subjectVal, message: messageVal })
+    body: JSON.stringify({ site: '홍성과외', name: name.value.trim(), phone: phone.value.trim(), grade: gradeVal, subject: subjectVal, message: messageVal })
   }).catch(function(err){ console.error('구글시트 전송 실패:', err); });
 
   window.open('https://open.kakao.com/o/sOXeVnpi', '_blank', 'noopener');
